@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Constent Box</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="wrapper">
+            <img src="cookie.png" alt="image cookie">
+            <div class="content">
+                <header class="content_title">Cookie Constent</header>
+                <p class="content_text">This website use cookie to ensure you get the best experience on our website sdfadfsad.
+                </p>
+                <div class="content_btn">
+                    <button class="btn_item">I understand</button>
+                    <a href="#" class="btn_item">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        const cookieBox = document.querySelector(".wrapper"),
+            acceptBtn = cookieBox.querySelector(".content_btn button");
+
+        acceptBtn.onclick = () => {
+            // setting cookie for 1 month, after 1 month cookie will be expired automaically
+            document.cookie = "CookieBy=HoKhanhDuy; max-age=" + 60 * 60 * 24 * 30;
+            if (document.cookie) { // if the above cookie set
+                cookieBox.classList.add("hide") //hide cookie box once cookie set
+            } else {
+                alert("Cookie can't be set!");  //if cookie  can't be set the alert an error
+            }
+            // let's hide the cookie box if cookie is set and not expired
+            let checkCookie = document.cookie.indexOf("CookieBy=HoKhanhDuy");
+            // if cookie is set the hide the cookie box else show it
+            checkCookie != -1 ? cookieBox.classList.add("hide") : cookieBox.classList.remove("hide");
+        }
+
+    </script>
+</body>
+
+</html>
